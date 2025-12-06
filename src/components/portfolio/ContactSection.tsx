@@ -39,7 +39,7 @@ const ContactSection = () => {
     // prevent default anchor navigation
     if (e && e.preventDefault) e.preventDefault();
 
-    const resumePath = "src/public/Ansu Sharma Resume.pdf"; // update filename if different
+    const resumePath = "src/public/Ansu-Sharma-Resume.pdf"; // update filename if different
 
     // 1) Open the PDF in a new tab (with noopener/noreferrer)
     try {
@@ -56,7 +56,7 @@ const ContactSection = () => {
     // 2) Trigger download
     const link = document.createElement("a");
     link.href = resumePath;
-    link.download = "Ansu Sharma Resume.pdf"; // filename for download
+    link.download = "Ansu-Sharma-Resume.pdf"; // filename for download
     // some browsers require the link to be in the DOM
     document.body.appendChild(link);
     link.click();
@@ -136,7 +136,7 @@ const ContactSection = () => {
             <p className="text-muted-foreground mb-4">Want the full picture?</p>
             <Button variant="hero" size="xl" asChild>
               <a
-                href="src/public/Ansu-Sharma-Resume.pdf"
+                href="/Ansu-Sharma-Resume.pdf"
                 onClick={handleResumeClick}
                 className="flex items-center gap-2 cursor-pointer"
                 role="button"
