@@ -1,4 +1,4 @@
-import { useToast } from "/Users/ansusharma/codes/src/components/hooks/use-toast.ts";
+import { useToast } from "@/components/hooks/use-toast.ts";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/components/ui/toast";
 
 export function Toaster() {
