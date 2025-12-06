@@ -16,51 +16,47 @@ const socialLinks = [
     icon: Linkedin,
     label: "LinkedIn",
     href: "https://linkedin.com/in/ansu-sharma-b74617211",
-    username: "/in/yourprofile",
   },
   {
     icon: Github,
     label: "GitHub",
     href: "https://github.com/Ansu6000",
-    username: "@yourprofile",
   },
   {
     icon: Twitter,
     label: "Twitter/X",
     href: "https://twitter.com/_Ansu_Sharma",
-    username: "@yourprofile",
   },
 ];
 
 const ContactSection = () => {
-  // Make sure your resume (Ansu-Sharma-Resume.pdf) is placed in the `public/` folder
-  // e.g. public/Ansu-Sharma-Resume.pdf
+  // Make sure the actual file is at: <project-root>/public/Ansu-Sharma-Resume.pdf
+  // The site will serve it at: https://your-site/Ansu-Sharma-Resume.pdf
+  const resumePath = "/Ansu-Sharma-Resume.pdf";
+
   const handleResumeClick = (e) => {
-    // prevent default anchor navigation
+    // If this is an actual <a> click, prevent default navigation because we control both open + download
     if (e && e.preventDefault) e.preventDefault();
 
-    const resumePath = "src/public/Ansu-Sharma-Resume.pdf"; // update filename if different
-
-    // 1) Open the PDF in a new tab (with noopener/noreferrer)
-    try {
-      window.open(resumePath, "_blank", "noopener,noreferrer");
-    } catch (err) {
-      // fallback: open then set location
-      const win = window.open();
-      if (win) {
-        win.opener = null;
-        win.location = resumePath;
-      }
+    // 1) open in new tab
+    const newWindow = window.open(resumePath, "_blank", "noopener,noreferrer");
+    if (newWindow) {
+      newWindow.opener = null;
     }
 
-    // 2) Trigger download
-    const link = document.createElement("a");
-    link.href = resumePath;
-    link.download = "Ansu-Sharma-Resume.pdf"; // filename for download
-    // some browsers require the link to be in the DOM
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // 2) trigger download
+    try {
+      const link = document.createElement("a");
+      link.href = resumePath;
+      link.download = "Ansu-Sharma-Resume.pdf";
+      // append to DOM for some browsers to allow .click()
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      // fallback: if download fails, just open the file in the current window
+      window.location.href = resumePath;
+    }
   };
 
   return (
@@ -77,7 +73,9 @@ const ContactSection = () => {
             Ready to Build Something Great?
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            I'm actively looking for Associate Product Manager, Product Manager, and Business Analyst opportunities. Let's discuss how I can add value to your team.
+            I'm actively looking for Associate Product Manager, Product Manager,
+            and Business Analyst opportunities. Let's discuss how I can add value
+            to your team.
           </p>
         </div>
 
@@ -86,7 +84,7 @@ const ContactSection = () => {
           {/* Direct contact */}
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:ansusharma2112@gmail.com"
               className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 border border-border hover:border-primary transition-all group"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -99,7 +97,7 @@ const ContactSection = () => {
             </a>
 
             <a
-              href="tel:+1234567890"
+              href="tel:+918749893984"
               className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 border border-border hover:border-primary transition-all group"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -122,7 +120,12 @@ const ContactSection = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {socialLinks.map((social) => (
               <Button key={social.label} variant="social" size="lg" asChild>
-                <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
                   <social.icon className="w-5 h-5" />
                   {social.label}
                   <ExternalLink className="w-3 h-3 opacity-50" />
@@ -136,10 +139,12 @@ const ContactSection = () => {
             <p className="text-muted-foreground mb-4">Want the full picture?</p>
             <Button variant="hero" size="xl" asChild>
               <a
-                href="/Ansu-Sharma-Resume.pdf"
+                href={resumePath}
                 onClick={handleResumeClick}
                 className="flex items-center gap-2 cursor-pointer"
                 role="button"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FileText className="w-5 h-5" />
                 Download Resume
