@@ -136,7 +136,7 @@ const ContactSection = () => {
             <p className="text-muted-foreground mb-4">Want the full picture?</p>
             <Button variant="hero" size="xl" asChild>
               <a
-                href="src/public/Ansu Sharma Resume.pdf"
+                href="src/public/Ansu-Sharma-Resume.pdf"
                 onClick={handleResumeClick}
                 className="flex items-center gap-2 cursor-pointer"
                 role="button"
