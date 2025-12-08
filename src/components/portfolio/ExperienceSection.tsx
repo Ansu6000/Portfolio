@@ -8,12 +8,12 @@ const experiences = [
     company: "RNIT AI Solutions LTD",
     period: "Sep 2023 - Present",
     highlights: [
-      "Delivered Assam’s statewide attendance platform for 5M students and 2L teachers with over 90% data reliability by leading cross functional collaboration across engineering, QA, DevOps and government teams.",
-      "Designed and launched the state’s digital leave management system processing more than 7.2 lakh yearly applications and reduced approval turnaround time by 40% through workflow automation.",
-      "Created more than 20 analytics dashboards and automated 30 recurring reports which cut manual reporting effort by 60% and enabled KPI based decision making at scale.",
-      "Digitized attendance and workforce operations for the Inland Water Transport Department covering 3,000 staff across 60 ferry stations and generated close to 100K dollars in annual operational impact.",
-      "Strengthened product quality by leading UAT end to end including test planning, scenario creation, documentation and defect tracking while introducing Playwright based regression automation that improved release stability by 30%.",
-      "Improved operational efficiency by designing user flows, wireframes and process maps and automating multi step workflows including alerts, validations and reconciliation checks which eliminated repetitive manual work."
+      "Scaled Assam’s attendance platform to 5M students and 200k teachers with rock-solid accuracy.",
+      "Reimagined teacher leave processes → 7.2 lakh+ requests/year handled with 40% faster turnaround.",
+      "Turned raw data into decision-making power with 20+ dashboards & 30 automated reports.",
+      "Modernized ferry station operations for 3,000 staff, driving $100K+ annual efficiency gains.",
+      "Upgraded product quality with UAT leadership and Playwright automation for smoother, more stable releases.",
+      "Designed intuitive user flows and automated complex workflows so teams can work smarter, not harder."
     ]
   },
   {
