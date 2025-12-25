@@ -48,7 +48,7 @@ const ContactSection = () => {
     try {
       const link = document.createElement("a");
       link.href = resumePath;
-      link.download = "Ansu-Sharma-Resume.pdf";
+      link.download = "Ansu_Sharma_Resume.pdf";
       // append to DOM for some browsers to allow .click()
       document.body.appendChild(link);
       link.click();
